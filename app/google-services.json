@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "293304095068",
+    "project_id": "wps-office-edaf8",
+    "storage_bucket": "wps-office-edaf8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:293304095068:android:f4677581b56e3f4181f199",
+        "android_client_info": {
+          "package_name": "uz.alisoft.office"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXdDZAXzGvffJMFplgFlUtPkWouyXnvaE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
