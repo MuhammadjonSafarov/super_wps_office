@@ -7,9 +7,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import androidx.recyclerview.widget.RecyclerView
 import com.cherry.doc.data.DocGroupInfo
-import uz.alisoft.office.R
 import uz.alisoft.office.databinding.RvDocCellBinding
-import uz.alisoft.office.databinding.RvDocItemCellBinding
 import uz.alisoft.office.ui.DocViewHolder
 
 /*

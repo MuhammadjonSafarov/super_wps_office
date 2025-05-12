@@ -111,16 +111,13 @@ class MainActivity : AppCompatActivity(),OnClickListener,OnItemClickListener,
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+  /*  override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_assets -> {
                 openDoc("test.docx",DocSourceType.ASSETS)
@@ -131,20 +128,17 @@ class MainActivity : AppCompatActivity(),OnClickListener,OnItemClickListener,
                 return true
             }
             R.id.action_select -> {
-                // 使用Intent打开文件管理器并选择文档
-
-                // 使用Intent打开文件管理器并选择文档
                 val intent = Intent(Intent.ACTION_GET_CONTENT)
-                intent.setType("*/*") // 设置要选择的文件类型，此处为任意文件类型
-
-                startActivityForResult(intent, REQUEST_CODE_SELECT_DOCUMENT) // 启动Activity并设置请求码
+               intent.setType("")
+                startActivityForResult(intent, REQUEST_CODE_SELECT_DOCUMENT)
                 return true
             }
             else -> super.onOptionsItemSelected(item)
         }
     }
+    */
+
     fun initView() {
-        setSupportActionBar(binding.toolbar)
         mDocAdapter = DocAdapter(this,this)
         binding.include.mRvDoc.adapter = mDocAdapter
     }

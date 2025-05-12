@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.widget.Toast
 import com.cherry.lib.doc.util.Constant
 import com.cherry.lib.doc.widget.PoiViewer
-import uz.alisoft.office.R
 import uz.alisoft.office.databinding.ActivityWordBinding
 
 class WordActivity : AppCompatActivity() {

@@ -5,16 +5,16 @@
     <item
         android:id="@+id/action_assets"
         android:orderInCategory="100"
-        android:title="浏览assets文档"
+        android:title="assets hujjatlarini ko\'rib chiqing"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_online"
         android:orderInCategory="100"
-        android:title="浏览在线文档"
+        android:title="Onlayn hujjatlarni ko'rib chiqing"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_select"
         android:orderInCategory="100"
-        android:title="选择文档"
+        android:title="Hujjatni tanlang"
         app:showAsAction="never" />
 </menu>

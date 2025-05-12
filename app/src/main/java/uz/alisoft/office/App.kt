@@ -1,7 +1,5 @@
 package uz.alisoft.office
 import android.app.Application
-import timber.log.Timber
-import uz.alisoft.office.util.CrashReportingTree
 
 /*
  * -----------------------------------------------------------------
