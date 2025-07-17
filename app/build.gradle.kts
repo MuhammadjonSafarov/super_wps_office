@@ -47,6 +47,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 
    /* key store password :wps_office
@@ -74,8 +75,6 @@ dependencies {
 
     /* Timber */
     implementation("com.jakewharton.timber:timber:5.0.1")
-    //implementation("com.google.firebase:firebase-crashlytics:18.3.6")
-    //implementation("com.google.firebase:firebase-analytics:21.2.1")
     /*{
         exclude module: "play-services-ads-identifier"
         exclude module: "play-services-measurement"
