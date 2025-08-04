@@ -9,6 +9,7 @@ import coil.load
 import uz.alisoft.office.data.DocInfo
 import com.cherry.lib.doc.bean.FileType
 import com.cherry.lib.doc.util.FileUtils
+import uz.alisoft.office.AppColor
 import uz.alisoft.office.R
 import uz.alisoft.office.databinding.RvDocItemCellBinding
 import java.io.File
@@ -55,7 +56,7 @@ class DocCellViewHolder(
                 binding.mCvDocCell.setCardBackgroundColor(
                     ResourcesCompat.getColor(
                         binding.mCvDocCell.resources,
-                        R.color.listItemColorPdf,
+                        AppColor.listItemColorPdf,
                         binding.mCvDocCell.context.theme
                     )
                 )
@@ -64,7 +65,7 @@ class DocCellViewHolder(
                 binding.mCvDocCell.setCardBackgroundColor(
                     ResourcesCompat.getColor(
                         binding.mCvDocCell.resources,
-                        R.color.listItemColorDoc,
+                        AppColor.listItemColorDoc,
                         binding.mCvDocCell.context.theme
                     )
                 )
@@ -73,7 +74,7 @@ class DocCellViewHolder(
                 binding.mCvDocCell.setCardBackgroundColor(
                     ResourcesCompat.getColor(
                         binding.mCvDocCell.resources,
-                        R.color.listItemColorExcel,
+                        AppColor.listItemColorExcel,
                         binding.mCvDocCell.context.theme
                     )
                 )
@@ -82,7 +83,7 @@ class DocCellViewHolder(
                 binding.mCvDocCell.setCardBackgroundColor(
                     ResourcesCompat.getColor(
                         binding.mCvDocCell.resources,
-                        R.color.listItemColorPPT,
+                        AppColor.listItemColorPPT,
                         binding.mCvDocCell.context.theme
                     )
                 )
@@ -91,7 +92,7 @@ class DocCellViewHolder(
                 binding.mCvDocCell.setCardBackgroundColor(
                     ResourcesCompat.getColor(
                         binding.mCvDocCell.resources,
-                        R.color.listItemColorImage,
+                        AppColor.listItemColorImage,
                         binding.mCvDocCell.context.theme
                     )
                 )

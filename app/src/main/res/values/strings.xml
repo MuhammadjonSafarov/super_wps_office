@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">Super WPS Office</string>
-
-
-    <string name="menu_home">Asosiy</string>
-    <string name="menu_projects">Loyiha</string>
-    <string name="menu_history">Tarix</string>
-    <string name="menu_settings">Sozlash</string>
-</resources>

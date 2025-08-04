@@ -24,8 +24,8 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
-            isShrinkResources = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -75,6 +75,7 @@ dependencies {
     implementation(libs.navigation.ui.ktx)
     implementation(project(":library"))
     implementation(project(":scan"))
+    implementation(project(":core:designsystem"))
 
     implementation("io.coil-kt:coil:1.4.0")
     implementation("com.github.Victor2018:easypermissions:v1.1.0")

@@ -24,3 +24,4 @@ rootProject.name = "Super WPS Office"
 include(":app")
 include(":scan")
 include(":library")
+include(":core:designsystem")

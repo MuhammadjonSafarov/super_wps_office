@@ -8,6 +8,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.yatik.qrscanner.ui.MainActivity1
 import dagger.hilt.android.AndroidEntryPoint
+import uz.alisoft.office.AppColor
 import uz.alisoft.office.R
 import uz.alisoft.office.databinding.ActivityMainHBinding
 import uz.alisoft.office.util.setStatusBarColor
@@ -21,7 +22,7 @@ class WiperActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainHBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setStatusBarColor(R.color.white, R.color.black, false)
+        setStatusBarColor(AppColor.white, AppColor.black, false)
         val navView: BottomNavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         /* val appBarConfiguration = AppBarConfiguration(

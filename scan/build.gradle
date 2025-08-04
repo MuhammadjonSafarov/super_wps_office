@@ -31,16 +31,16 @@ android {
     }
 
     buildTypes {
-      /*  release {
+        release {
             minifyEnabled true
-            shrinkResources true
+//            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
-            applicationIdSuffix ".debug"
+           // applicationIdSuffix ".debug"
             minifyEnabled false
             shrinkResources false
-        }*/
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
