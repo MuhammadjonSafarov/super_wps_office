@@ -5,7 +5,7 @@ import android.provider.MediaStore
 import android.util.Log
 import android.webkit.MimeTypeMap
 import com.cherry.doc.data.DocGroupInfo
-import uz.alisoft.office.ui.data.DocInfo
+import uz.alisoft.office.data.DocInfo
 import com.cherry.lib.doc.bean.FileType
 import com.cherry.lib.doc.util.FileUtils
 import java.math.BigDecimal

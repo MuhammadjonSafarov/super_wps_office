@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <font
+        android:font="@font/open_sans_semibold"
+        android:fontStyle="normal"
+        android:fontWeight="500"
+        app:font="@font/open_sans_semibold"
+        app:fontStyle="normal"
+        app:fontWeight="500"
+        tools:ignore="UnusedAttribute" />
+
+    <font
+        android:font="@font/open_sans_semibold_italic"
+        android:fontStyle="italic"
+        android:fontWeight="500"
+        app:font="@font/open_sans_semibold_italic"
+        app:fontStyle="normal"
+        app:fontWeight="500"
+        tools:ignore="UnusedAttribute" />
+</font-family>

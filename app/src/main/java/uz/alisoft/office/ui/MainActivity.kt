@@ -285,7 +285,6 @@ class MainActivity : AppCompatActivity(),OnClickListener,OnItemClickListener,
                         "Storage Permission")
                 }
             }
-
             settingsDialogBuilder.build().show()
         }
 

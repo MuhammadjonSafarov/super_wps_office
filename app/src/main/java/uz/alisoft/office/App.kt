@@ -1,5 +1,6 @@
 package uz.alisoft.office
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 import uz.alisoft.office.util.CrashReportingTree
 
@@ -14,7 +15,9 @@ import uz.alisoft.office.util.CrashReportingTree
  * -----------------------------------------------------------------
  */
 
+@HiltAndroidApp
 class App: Application() {
+
     override fun onCreate() {
         super.onCreate()
         if (BuildConfig.DEBUG)

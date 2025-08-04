@@ -23,6 +23,7 @@ import java.util.Vector;
 import com.cherry.lib.doc.office.fc.hslf.model.textproperties.AutoNumberTextProp;
 import com.cherry.lib.doc.office.fc.hslf.model.textproperties.TextPropCollection;
 import com.cherry.lib.doc.office.fc.hslf.record.*;
+import com.cherry.lib.doc.office.fc.hslf.record.Record;
 import com.cherry.lib.doc.office.fc.hslf.usermodel.RichTextRun;
 import com.cherry.lib.doc.office.fc.hslf.usermodel.SlideShow;
 import com.cherry.lib.doc.office.fc.util.StringUtil;

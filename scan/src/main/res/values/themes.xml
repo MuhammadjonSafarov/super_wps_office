@@ -1,0 +1,86 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="Theme.QRScanner" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/light_primary_blue</item>
+        <item name="colorPrimaryVariant">@color/light_primary_variant_blue</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/dark_blue</item>
+        <item name="colorSecondaryVariant">@color/dark_blue</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Customize your theme here. -->
+        <item name="bottomSheetBackgroundTint">@color/nav_back_light_blue</item>
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.App.BottomSheetDialog</item>
+        <item name="toolbarStyle">@style/CustomToolbarStyle</item>
+        <item name="imageButtonStyle">@style/ImageButtonStyle</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="mainSheetIconColor">#A6000000</item>
+        <item name="semiTransparent">@color/semiTransparentBlack</item>
+        <item name="shimmerColor">#B3B2B2</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="DarkTheme" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/dark_primary_blue</item>
+        <item name="colorPrimaryVariant">@color/dark_primary_variant_blue</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/light_blue</item>
+        <item name="colorSecondaryVariant">@color/light_blue</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Customize your theme here. -->
+        <item name="bottomSheetBackgroundTint">@color/nav_back_dark_blue</item>
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.App.BottomSheetDialog</item>
+        <item name="toolbarStyle">@style/CustomToolbarStyle</item>
+        <item name="imageButtonStyle">@style/ImageButtonStyle</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="mainSheetIconColor">?attr/colorOnPrimary</item>
+        <item name="semiTransparent">@color/semiTransparentWhite</item>
+        <item name="shimmerColor">#656565</item>
+    </style>
+
+    <style name="LightThemeGreen" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/light_primary_green</item>
+        <item name="colorPrimaryVariant">@color/light_primary_variant_green</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/dark_green</item>
+        <item name="colorSecondaryVariant">@color/dark_green</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Customize your theme here. -->
+        <item name="bottomSheetBackgroundTint">@color/nav_back_light_green</item>
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.App.BottomSheetDialog</item>
+        <item name="toolbarStyle">@style/CustomToolbarStyle</item>
+        <item name="imageButtonStyle">@style/ImageButtonStyle</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="mainSheetIconColor">#A6000000</item>
+        <item name="semiTransparent">@color/semiTransparentBlack</item>
+        <item name="shimmerColor">#B3B2B2</item>
+    </style>
+
+    <style name="DarkThemeGreen" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/dark_primary_green</item>
+        <item name="colorPrimaryVariant">@color/dark_primary_variant_green</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/light_green</item>
+        <item name="colorSecondaryVariant">@color/light_green</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Customize your theme here. -->
+        <item name="bottomSheetBackgroundTint">@color/nav_back_dark_green</item>
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.App.BottomSheetDialog</item>
+        <item name="toolbarStyle">@style/CustomToolbarStyle</item>
+        <item name="imageButtonStyle">@style/ImageButtonStyle</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="mainSheetIconColor">?attr/colorOnPrimary</item>
+        <item name="semiTransparent">@color/semiTransparentWhite</item>
+        <item name="shimmerColor">#656565</item>
+    </style>
+
+</resources>
+

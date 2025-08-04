@@ -1,0 +1,99 @@
+trigger:
+  branches:
+    include:
+      - release
+
+variables:
+  - group: KeystoreVariableGroup
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+  - task: JavaToolInstaller@0
+    inputs:
+      versionSpec: '17'
+      jdkArchitectureOption: 'x64'
+      jdkSourceOption: 'PreInstalled'
+
+  - task: DownloadSecureFile@1
+    displayName: 'Download Keystore File'
+    inputs:
+      secureFile: 'upload-keystore.jks'
+    name: keystore
+
+  - task: Gradle@3
+    displayName: 'Build and Sign AAB'
+    inputs:
+      workingDirectory: '$(Build.SourcesDirectory)'
+      gradleWrapperFile: 'gradlew'
+      tasks: ':app:bundleRelease'
+      publishJUnitResults: true
+      testResultsFiles: '**/TEST-*.xml'
+
+  - task: CmdLine@2
+    displayName: 'Signing and aligning AAB file'
+    inputs:
+      script: |
+        jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 -keystore "$(keystore.secureFilePath)" -storepass "$(KEYSTORE_PASSWORD)" -keypass "$(KEY_PASSWORD)" "$(system.defaultworkingdirectory)/app/build/outputs/bundle/release/app-release.aab" "$(KEY_ALIAS)"
+
+  - task: CopyFiles@2
+    displayName: 'Copying AAB'
+    inputs:
+      SourceFolder: '$(system.defaultworkingdirectory)/app/build/outputs/bundle/release/'
+      Contents: '**'
+      TargetFolder: '$(build.ArtifactStagingDirectory)/AAB'
+
+  - task: CopyFiles@2
+    displayName: 'Copying mapping.txt for AAB'
+    inputs:
+      SourceFolder: '$(system.defaultworkingdirectory)/app/build/outputs/mapping/release/'
+      Contents: 'mapping.txt'
+      TargetFolder: '$(build.ArtifactStagingDirectory)/AAB'
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish AAB Artifacts'
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)/AAB'
+      ArtifactName: 'BundleArtifacts'
+      publishLocation: 'Container'
+
+  - task: Gradle@3
+    displayName: 'Build and Sign APK'
+    inputs:
+      workingDirectory: '$(Build.SourcesDirectory)'
+      gradleWrapperFile: 'gradlew'
+      tasks: ':app:assembleRelease'
+      publishJUnitResults: false
+
+  - task: AndroidSigning@3
+    displayName: 'Signing APK'
+    inputs:
+      apkFiles: '$(Build.SourcesDirectory)/app/build/outputs/apk/release/app-release-unsigned.apk'
+      apksignerKeystoreFile: 'upload-keystore.jks'
+      apksignerKeystorePassword: '$(KEYSTORE_PASSWORD)'
+      apksignerKeystoreAlias: '$(KEY_ALIAS)'
+      apksignerKeyPassword: '$(KEY_PASSWORD)'
+      apksignerArguments: --out $(Build.SourcesDirectory)/app/build/outputs/apk/release/app-release-signed.apk
+      zipalign: true
+
+  - task: CopyFiles@2
+    displayName: 'Copying APK'
+    inputs:
+      SourceFolder: '$(Build.SourcesDirectory)/app/build/outputs/apk/release/'
+      Contents: 'app-release-signed.apk'
+      TargetFolder: '$(build.ArtifactStagingDirectory)/APK'
+
+  - task: CopyFiles@2
+    displayName: 'Copying mapping.txt for APK'
+    inputs:
+      SourceFolder: '$(system.defaultworkingdirectory)/app/build/outputs/mapping/release/'
+      Contents: 'mapping.txt'
+      TargetFolder: '$(build.ArtifactStagingDirectory)/APK'
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish APK Artifacts'
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)/APK'
+      ArtifactName: 'APKArtifacts'
+      publishLocation: 'Container'
