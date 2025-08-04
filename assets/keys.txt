@@ -1,0 +1,3 @@
+ /* key store password :wps_office
+   *  key alias :key_wps_office
+   *  key password :wps_office */

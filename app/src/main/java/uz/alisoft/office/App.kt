@@ -1,5 +1,7 @@
 package uz.alisoft.office
 import android.app.Application
+import timber.log.Timber
+import uz.alisoft.office.util.CrashReportingTree
 
 /*
  * -----------------------------------------------------------------
@@ -15,9 +17,9 @@ import android.app.Application
 class App: Application() {
     override fun onCreate() {
         super.onCreate()
-        /*if (BuildConfig.DEBUG)
+        if (BuildConfig.DEBUG)
             Timber.plant(Timber.DebugTree())
         else
-            Timber.plant(CrashReportingTree())*/
+            Timber.plant(CrashReportingTree())
     }
 }
