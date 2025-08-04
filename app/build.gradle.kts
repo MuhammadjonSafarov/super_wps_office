@@ -3,6 +3,9 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.google.gms.google.services)
     alias(libs.plugins.google.firebase.crashlytics)
+    alias(libs.plugins.hilt.android)
+    alias(libs.plugins.devtools.ksp)
+    id("kotlin-kapt")
 }
 
 android {
@@ -38,9 +41,12 @@ android {
             }
         }
     }
+   
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+     /*   sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8*/
     }
     kotlinOptions {
         jvmTarget = "11"
@@ -50,6 +56,7 @@ android {
         buildConfig = true
     }
 
+
    /* key store password :wps_office
    *  key alias :key_wps_office
    *  key password :wps_office */
@@ -58,22 +65,34 @@ android {
 
 dependencies {
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
+    implementation(libs.core.ktx)
+    implementation(libs.appcompat)
     implementation(libs.material)
-    implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.lifecycle.livedata.ktx)
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.constraintlayout)
+    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.navigation.fragment.ktx)
+    implementation(libs.navigation.ui.ktx)
     implementation(project(":library"))
+    implementation(project(":scan"))
 
     implementation("io.coil-kt:coil:1.4.0")
     implementation("com.github.Victor2018:easypermissions:v1.1.0")
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.crashlytics)
 
-    /* Timber */
+    // Hilt for testing
+    // Dagger Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+    //debugImplementation libs.hilt.android.testing
+    //kaptAndroidTest libs.hilt.android.compiler
+    // Room components
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
+    annotationProcessor(libs.room.compiler)
+
+            /* Timber */
     implementation("com.jakewharton.timber:timber:5.0.1")
     /*{
         exclude module: "play-services-ads-identifier"
@@ -82,6 +101,6 @@ dependencies {
         exclude module: "play-services-measurement-api"
     }*/
     testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    //androidTestImplementation(libs.junit)
+    //androidTestImplementation(libs.espresso.core)
 }

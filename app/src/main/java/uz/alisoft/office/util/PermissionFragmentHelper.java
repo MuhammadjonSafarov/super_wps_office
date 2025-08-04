@@ -1,3 +1,4 @@
+/*
 package uz.alisoft.office.util;
 
 import android.Manifest;
@@ -73,9 +74,11 @@ public class PermissionFragmentHelper implements OnActivityPermissionCallback {
         }
     }
 
-    /**
+    */
+/**
      * used only for {@link Manifest.permission#SYSTEM_ALERT_WINDOW}
-     */
+     *//*
+
     @Override public void onActivityForResult(int requestCode) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (requestCode == OVERLAY_PERMISSION_REQ_CODE) {
@@ -90,18 +93,22 @@ public class PermissionFragmentHelper implements OnActivityPermissionCallback {
         }
     }
 
-    /**
+    */
+/**
      * force the user to accept the permission. it won't work if the user ever thick-ed the "don't show again"
-     */
+     *//*
+
     @NonNull public PermissionFragmentHelper setForceAccepting(boolean forceAccepting) {
         this.forceAccepting = forceAccepting;
         return this;
     }
 
-    /**
+    */
+/**
      * @param permissionName
      *         (it can be one of these types (String), (String[])
-     */
+     *//*
+
     @NonNull public PermissionFragmentHelper request(@NonNull Object permissionName) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (permissionName instanceof String) {
@@ -118,9 +125,11 @@ public class PermissionFragmentHelper implements OnActivityPermissionCallback {
         return this;
     }
 
-    /**
+    */
+/**
      * used only for {@link Manifest.permission#SYSTEM_ALERT_WINDOW}
-     */
+     *//*
+
     public void requestSystemAlertPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             try {
@@ -137,9 +146,11 @@ public class PermissionFragmentHelper implements OnActivityPermissionCallback {
         }
     }
 
-    /**
+    */
+/**
      * internal usage.
-     */
+     *//*
+
     private void handleSingle(@NonNull String permissionName) {
         if (permissionExists(permissionName)) {// android M throws exception when requesting
             // run time permission that does not exists in AndroidManifest.
@@ -161,9 +172,11 @@ public class PermissionFragmentHelper implements OnActivityPermissionCallback {
         }
     }
 
-    /**
+    */
+/**
      * internal usage.
-     */
+     *//*
+
     private void handleMulti(@NonNull String[] permissionNames) {
         List<String> permissions = declinedPermissionsAsList(context, permissionNames);
         if (permissions.isEmpty()) {
@@ -178,9 +191,11 @@ public class PermissionFragmentHelper implements OnActivityPermissionCallback {
         context.requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_PERMISSIONS);
     }
 
-    /**
+    */
+/**
      * to be called when explanation is presented to the user
-     */
+     *//*
+
     public void requestAfterExplanation(@NonNull String permissionName) {
         if (isPermissionDeclined(permissionName)) {
             context.requestPermissions(new String[]{permissionName}, REQUEST_PERMISSIONS);
@@ -189,9 +204,11 @@ public class PermissionFragmentHelper implements OnActivityPermissionCallback {
         }
     }
 
-    /**
+    */
+/**
      * to be called when explanation is presented to the user
-     */
+     *//*
+
     public void requestAfterExplanation(@NonNull String[] permissions) {
         ArrayList<String> permissionsToRequest = new ArrayList<>();
         for (String permissionName : permissions) {
@@ -206,39 +223,49 @@ public class PermissionFragmentHelper implements OnActivityPermissionCallback {
         context.requestPermissions(permissions, REQUEST_PERMISSIONS);
     }
 
-    /**
+    */
+/**
      * return true if permission is declined, false otherwise.
-     */
+     *//*
+
     public boolean isPermissionDeclined(@NonNull String permissionsName) {
         return ActivityCompat.checkSelfPermission(context.getContext(), permissionsName) != PackageManager.PERMISSION_GRANTED;
     }
 
-    /**
+    */
+/**
      * return true if permission is granted, false otherwise.
-     */
+     *//*
+
     public boolean isPermissionGranted(@NonNull String permissionsName) {
         return ActivityCompat.checkSelfPermission(context.getContext(), permissionsName) == PackageManager.PERMISSION_GRANTED;
     }
 
-    /**
+    */
+/**
      * @return true if explanation needed.
-     */
+     *//*
+
     public boolean isExplanationNeeded(@NonNull String permissionName) {
         return context.shouldShowRequestPermissionRationale(permissionName);
     }
 
-    /**
+    */
+/**
      * @return true if the permission is patently denied by the user and only can be granted via settings Screen
      * <p/>
      * consider using {@link PermissionFragmentHelper#openSettingsScreen(Fragment)}} to open settings screen
-     */
+     *//*
+
     public boolean isPermissionPermanentlyDenied(@NonNull String permission) {
         return isPermissionDeclined(permission) && !isExplanationNeeded(permission);
     }
 
-    /**
+    */
+/**
      * internal usage.
-     */
+     *//*
+
     private boolean verifyPermissions(@NonNull int[] grantResults) {
         if (grantResults.length < 1) {
             return false;
@@ -251,9 +278,11 @@ public class PermissionFragmentHelper implements OnActivityPermissionCallback {
         return true;
     }
 
-    /**
+    */
+/**
      * @return true if permission exists in the manifest, false otherwise.
-     */
+     *//*
+
     public boolean permissionExists(@NonNull String permissionName) {
         try {
             Context context = this.context.getContext();
@@ -271,9 +300,11 @@ public class PermissionFragmentHelper implements OnActivityPermissionCallback {
         return false;
     }
 
-    /**
+    */
+/**
      * @return true if {@link Manifest.permission#SYSTEM_ALERT_WINDOW} is granted
-     */
+     *//*
+
     public boolean isSystemAlertGranted() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             return Settings.canDrawOverlays(context.getContext());
@@ -281,9 +312,11 @@ public class PermissionFragmentHelper implements OnActivityPermissionCallback {
         return true;
     }
 
-    /**
+    */
+/**
      * open android settings screen for the specific package name
-     */
+     *//*
+
     public void openSettingsScreen() {
         Intent intent = new Intent();
         intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
@@ -292,11 +325,13 @@ public class PermissionFragmentHelper implements OnActivityPermissionCallback {
         context.startActivity(intent);
     }
 
-    /**
+    */
+/**
      * be aware as it might return null (do check if the returned result is not null!)
      * <p/>
      * can be used outside of activity.
-     */
+     *//*
+
     @Nullable
     public static String declinedPermission(@NonNull Fragment context, @NonNull String[] permissions) {
         for (String permission : permissions) {
@@ -307,9 +342,11 @@ public class PermissionFragmentHelper implements OnActivityPermissionCallback {
         return null;
     }
 
-    /**
+    */
+/**
      * @return list of permissions that the user declined or not yet granted.
-     */
+     *//*
+
     public static String[] declinedPermissions(@NonNull Fragment context, @NonNull String[] permissions) {
         List<String> permissionsNeeded = new ArrayList<>();
         for (String permission : permissions) {
@@ -330,43 +367,53 @@ public class PermissionFragmentHelper implements OnActivityPermissionCallback {
         return permissionsNeeded;
     }
 
-    /**
+    */
+/**
      * return true if permission is granted, false otherwise.
      * <p/>
      * can be used outside of activity.
-     */
+     *//*
+
     public static boolean isPermissionGranted(@NonNull Fragment context, @NonNull String permission) {
         return ActivityCompat.checkSelfPermission(context.getContext(), permission) == PackageManager.PERMISSION_GRANTED;
     }
 
-    /**
+    */
+/**
      * return true if permission is declined, false otherwise.
      * <p/>
      * can be used outside of activity.
-     */
+     *//*
+
     public static boolean isPermissionDeclined(@NonNull Fragment context, @NonNull String permission) {
         return ActivityCompat.checkSelfPermission(context.getContext(), permission) != PackageManager.PERMISSION_GRANTED;
     }
 
-    /**
+    */
+/**
      * @return true if explanation needed.
-     */
+     *//*
+
     public static boolean isExplanationNeeded(@NonNull Fragment context, @NonNull String permissionName) {
         return context.shouldShowRequestPermissionRationale(permissionName);
     }
 
-    /**
+    */
+/**
      * @return true if the permission is patently denied by the user and only can be granted via settings Screen
      * <p/>
      * consider using {@link PermissionFragmentHelper#openSettingsScreen(Fragment)} to open settings screen
-     */
+     *//*
+
     public static boolean isPermissionPermanentlyDenied(@NonNull Fragment context, @NonNull String permission) {
         return isPermissionDeclined(context, permission) && !isExplanationNeeded(context, permission);
     }
 
-    /**
+    */
+/**
      * open android settings screen for your app.
-     */
+     *//*
+
     public static void openSettingsScreen(@NonNull Fragment context) {
         Intent intent = new Intent();
         intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
@@ -375,9 +422,11 @@ public class PermissionFragmentHelper implements OnActivityPermissionCallback {
         context.startActivity(intent);
     }
 
-    /**
+    */
+/**
      * @return true if permission exists in the manifest, false otherwise.
-     */
+     *//*
+
     public static boolean permissionExists(@NonNull Fragment context, @NonNull String permissionName) {
         try {
             Context ctx = context.getContext();
@@ -395,9 +444,11 @@ public class PermissionFragmentHelper implements OnActivityPermissionCallback {
         return false;
     }
 
-    /**
+    */
+/**
      * @return true if {@link Manifest.permission#SYSTEM_ALERT_WINDOW} is granted
-     */
+     *//*
+
     public static boolean isSystemAlertGranted(@NonNull Fragment context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             return Settings.canDrawOverlays(context.getContext());
@@ -425,3 +476,4 @@ public class PermissionFragmentHelper implements OnActivityPermissionCallback {
         this.skipExplanation = skipExplanation;
     }
 }
+*/

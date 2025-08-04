@@ -1,0 +1,150 @@
+<resources>
+    <string name="app_name">QR Scanner</string>
+    <string name="Wifi">WiFi</string>
+    <string name="text">Text</string>
+    <string name="url">Url</string>
+    <string name="sms">SMS</string>
+    <string name="raw">Raw</string>
+    <string name="wifi">Wifi</string>
+    <string name="phone">Phone</string>
+    <string name="text2">Text</string>
+    <string name="upi">UPI</string>
+    <string name="location">Location</string>
+    <string name="product">Product</string>
+    <string name="barcode">Barcode</string>
+    <string name="delete_all_files">Delete all files</string>
+    <string name="select_all">Select all</string>
+    <string name="crop_activity_title">Crop Image</string>
+    <string name="scan_image">Scan image</string>
+    <string name="image_loading_failed">Failed to load image</string>
+    <string name="barcode_not_found">No barcode detected</string>
+    <string name="something_went_wrong">Sorry, something went wrong</string>
+    <string name="start_scanning">Start scanning</string>
+    <string name="select_other">Select other</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+    <string name="permissionDeniedMessageCam">In order to work properly, app needs access to camera. Please click Allow -> Permissions -> Camera -> Allow only while using the app</string>
+    <string name="permissionDeniedMessageStorage">In order to pick gallery image, app needs to access device storage. Please click Allow -> Permissions -> Files and media -> Allow access to media only</string>
+    <string name="permissionDeniedMessageSaveImage">In order to save image, app needs to access device storage. Please click Allow -> Permissions -> Files and media -> Allow access to media only</string>
+    <string name="deleteAllWarning">"You're going to delete all items and you won't be able to revert changes. Are you sure to delete all items?"</string>
+    <string name="productMessage">Press launch button to retrieve product details.</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="initial_zoom">1.0x</string>
+    <string name="save_file">Save file</string>
+    <string name="ean">EAN 13</string>
+    <string name="light_blue">Light Blue</string>
+    <string name="dark_blue">Dark Blue</string>
+    <string name="light_green">Light Green</string>
+    <string name="dark_green">Dark Green</string>
+    <string name="system_default">System Default</string>
+    <string name="no_data">No data available to show</string>
+    <string name="swipe_delete_info">You can simply swipe to delete</string>
+    <string name="apply_theme_pref_summary">Apply custom theme with different tones</string>
+    <string name="theme_preference_key">theme_preference</string>
+    <string name="current_theme">current_theme</string>
+
+    <string name="light_blue_int_val">0</string>
+    <string name="dark_blue_int_val">1</string>
+    <string name="light_green_int_val">2</string>
+    <string name="dark_green_int_val">3</string>
+    <string name="system_default_int_val">4</string>
+
+    <string name="create_qr">Create QR</string>
+    <string name="Copy">Copy</string>
+    <string name="share">Share</string>
+    <string name="launch">Launch</string>
+    <string name="fetching">fetching...</string>
+    <string name="create">Create</string>
+    <string name="create_qr_notif_message">Click here to create QR Code</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Food Facts -->
+    <string name="nova_1_info">Unprocessed or minimally processed food</string>
+    <string name="nova_2_info">Processed culinary ingredients</string>
+    <string name="nova_3_info">Processed food</string>
+    <string name="nova_4_info">Ultra-processed food</string>
+    <string name="nutri_score_a">Very good nutritional quality</string>
+    <string name="nutri_score_b">Good nutritional quality</string>
+    <string name="nutri_score_c">Average nutritional quality</string>
+    <string name="nutri_score_d">Poor nutritional quality</string>
+    <string name="nutri_score_e">Bad nutritional quality</string>
+    <string name="nutri_score_unknown">Nutritional quality not available</string>
+    <string name="nova_unknown_info">Nova rating not available</string>
+    <string name="nutrition_type">Nutrition Type</string>
+    <string name="per_100g_100ml">Per 100g/100ml</string>
+    <string name="per_serving">Per Serving</string>
+    <string name="product_name_unavailable">Product name unavailable</string>
+    <string name="nova_group">Nova Group</string>
+    <string name="nutri_score">Nutri-Score</string>
+    <string name="food_product_get_nutriments">Food product? Get nutriments</string>
+    <string name="get_nutriments_message">If the scanned barcode corresponds to a food item, you can retrieve detailed information about the product from the OpenFoodFacts database. Please note that the accuracy of this data may vary.</string>
+
+    <!-- Settings Preferences -->
+    <string name="get_details">Get Details</string>
+    <string name="app_version">App version</string>
+    <string name="help">Help &amp; Feedback</string>
+    <string name="default_cam_settings_summary">By default rear camera will be used</string>
+    <string name="cam_settings_title">Use front camera</string>
+    <string name="auto_open_url_title">Automatically open URL</string>
+    <string name="auto_open_url_summary">Open the url automatically after successful scan</string>
+    <string name="vibration_effect_settings_title">Vibration effect</string>
+    <string name="vibration_effect_settings_summary">Vibrate on successful scan</string>
+    <string name="scan_history_settings_title">Scan history</string>
+    <string name="scan_history_settings_summary">Add scanned data to history</string>
+    <string name="pref_camera_and_others">Camera and Others</string>
+    <string name="pref_themes">Themes</string>
+    <string name="select_theme_settings_title">Select theme</string>
+    <string name="source_code_preference_summary">You\'ll be redirected to source code repository</string>
+    <string name="source_code">Source Code</string>
+    <string name="search_history">Search history items.</string>
+    <string name="searchHint">Enter barcode data...</string>
+    <string name="no_saved_items">No barcodes found to show.</string>
+
+    <string name="email">Email</string>
+    <string name="delete">Delete</string>
+    <string name="yes">Yes</string>
+    <string name="delete_confirmation">Are you sure to delete this item?</string>
+    <string name="cannot_delete_warning">Sorry, Unable to delete this item.</string>
+    <string name="deleted_item">Item deleted successfully</string>
+    <string name="undo">Undo</string>
+
+    <string name="wifi_config_saved">Configuration saved or modified successfully</string>
+    <string name="invalid_wifi_config">Something went wrong - invalid configuration</string>
+    <string name="wifi_config_exist">Configuration already exist (as-is) on device, nothing changed</string>
+    <string name="permission_denied">Permission denied</string>
+    <string name="maps_not_installed">Google Maps is not installed on your device</string>
+    <string name="wifi_saved_dialog_message"><![CDATA["Network details saved successfully. The device may not connect automatically. If the device does not connect, please click open, go to saved networks and select "]]></string>
+    <string name="okay">Okay</string>
+    <string name="open">Open</string>
+    <string name="empty_qr_message">Sorry, this QR code doesn\'t contain any data</string>
+
+    <string-array name="theme_types">
+        <item>@string/light_blue</item>
+        <item>@string/dark_blue</item>
+        <item>@string/light_green</item>
+        <item>@string/dark_green</item>
+        <item>@string/system_default</item>
+    </string-array>
+
+    <string-array name="pref_num">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+</resources>

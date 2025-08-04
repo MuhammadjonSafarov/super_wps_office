@@ -20,6 +20,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "WPS Office"
+rootProject.name = "Super WPS Office"
 include(":app")
+include(":scan")
 include(":library")
