@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lbl_hello_world">Salom Dunyo</string>
+
+    <string name="menu_home">Asosiy</string>
+    <string name="menu_projects">Loyiha</string>
+    <string name="menu_history">Tarix</string>
+    <string name="menu_settings">Sozlash</string>
+</resources>
