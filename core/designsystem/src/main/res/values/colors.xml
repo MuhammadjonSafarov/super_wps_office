@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorPrimaryDark">#7530E0</color>
+    <color name="colorMenuIconSelect">#7731D8</color>
+    <color name="colorMenuIconUnSelect">#6E5899</color>
+    <color name="colorMenuTextSelect">#7731D8</color>
+    <color name="colorMenuTextUnSelect">#6E5899</color>
+    <color name="colorTextBlack">#FF000000</color>
+
     <color name="purple_200">#8A3DFF</color>
     <color name="purple_500">#8A3DFF</color>
     <color name="purple_700">#8A3DFF</color>
@@ -8,11 +15,17 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="card_menu_color">#202124</color>
-    <color name="card_scan_bg">#8A3DFF</color>
+    <color name="card_scan_bg">#8B3DFF</color>
 
-    <color name="listItemColorPdf">#f2d6da</color>
+   <!-- <color name="listItemColorPdf">#f2d6da</color>
     <color name="listItemColorDoc">#d3e0f2</color>
     <color name="listItemColorExcel">#d7e4dc</color>
     <color name="listItemColorPPT">#f4e1d5</color>
-    <color name="listItemColorImage">#D8F0F7</color>
+    <color name="listItemColorImage">#D8F0F7</color>-->
+
+    <color name="listItemColorPdf">#fff</color>
+    <color name="listItemColorDoc">#fff</color>
+    <color name="listItemColorExcel">#fff</color>
+    <color name="listItemColorPPT">#fff</color>
+    <color name="listItemColorImage">#fff</color>
 </resources>

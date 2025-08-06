@@ -14,18 +14,21 @@
     <fragment
         android:id="@+id/navigation_projects"
         android:name="uz.alisoft.office.ui.projects.ProjectsFragment"
-        android:label="@string/menu_projects"
-        tools:layout="@layout/fragment_projects" />
+        android:label="@string/menu_favorite"
+        tools:layout="@layout/fragment_projects"
+        />
 
     <fragment
         android:id="@+id/navigation_history"
         android:name="com.yatik.qrscanner.ui.fragments.history.HistoryFragment"
         android:label="@string/menu_history"
-        tools:layout="@layout/fragment_history" />
+        tools:layout="@layout/fragment_history"
+        />
 
     <fragment
         android:id="@+id/navigation_settings"
         android:name="uz.alisoft.office.ui.settings.SettingsFragment"
         android:label="@string/menu_settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings"
+        />
 </navigation>

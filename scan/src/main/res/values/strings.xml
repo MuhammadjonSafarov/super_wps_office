@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">QR Scanner</string>
     <string name="Wifi">WiFi</string>
     <string name="text">Text</string>
     <string name="url">Url</string>

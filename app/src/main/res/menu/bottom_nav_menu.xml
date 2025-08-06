@@ -8,8 +8,8 @@
 
     <item
         android:id="@+id/navigation_projects"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/menu_projects" />
+        android:icon="@drawable/menu_icon_heart"
+        android:title="@string/menu_favorite" />
 
     <item
         android:id="@+id/navigation_scan"
@@ -17,12 +17,12 @@
         />
     <item
         android:id="@+id/navigation_history"
-        android:icon="@drawable/outline_history_28"
+        android:icon="@drawable/menu_icon_history"
         android:title="@string/menu_history" />
 
     <item
         android:id="@+id/navigation_settings"
-        android:icon="@drawable/settings_24"
+        android:icon="@drawable/menu_icon_settings"
         android:title="@string/menu_settings" />
 
 </menu>
