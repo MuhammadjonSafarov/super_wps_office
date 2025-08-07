@@ -128,7 +128,6 @@ object DocUtil {
 
         }
 
-
         docGroupList.add(DocGroupInfo("DOC & DOCX",docList))
         docGroupList.add(DocGroupInfo("XLS & XLSX",excelList))
         docGroupList.add(DocGroupInfo("PPT & PPTX",pptList))

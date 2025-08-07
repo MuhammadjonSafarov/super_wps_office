@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Super WPS Office</string>
+    <string name="lbl_number_uzb_placeholder">+998</string>
+    <string name="lbl_number_uzb_placeholder_withou_plus">998</string>
+    <string name="digits_for_placeholder_redmadrobot_mask_phone_uzb">0123456789 -()</string>
+    <string name="placeholder_redmadrobot_mask_phone_uzb">([00]) [000]-[00]-[00]</string>
+
+
+    <string name="yandex_map_api_key">535de2af-a75e-4139-9b5a-8232df1653f0</string>
+
+    <string name="notification_channel_id">AgatAgentApp Notification Channel GENERAL</string>
+    <string name="notification_channel_name">AgatAgentApp Notification Channel</string>
+    <string name="notification_channel_description">AgatAgentApp Notification Description</string>
+
+    <string name="tag_space_small">Space Small</string>
+    <string name="tag_space_medium">Space Medium</string>
+    <string name="tag_space_big">Space Big</string>
+    <string name="tag_space_large_bottom">Space Large Bottom</string>
+
+</resources>
