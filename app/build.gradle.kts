@@ -74,7 +74,7 @@ dependencies {
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
     implementation(project(":library"))
-    implementation(project(":scan"))
+    implementation(project(":scan_qr"))
     implementation(project(":core:designsystem"))
 
     implementation("io.coil-kt:coil:1.4.0")

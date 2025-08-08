@@ -14,7 +14,7 @@
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/core/designsystem" />
             <option value="$PROJECT_DIR$/library" />
-            <option value="$PROJECT_DIR$/scan" />
+            <option value="$PROJECT_DIR$/scan_qr" />
           </set>
         </option>
       </GradleProjectSettings>

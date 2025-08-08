@@ -1,13 +1,12 @@
 package com.cherry.doc
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.AdapterView
 import androidx.recyclerview.widget.RecyclerView
 import uz.alisoft.office.data.DocInfo
 import uz.alisoft.office.databinding.RvDocItemCellBinding
 import uz.alisoft.office.ui.home.adapter.DocCellViewHolder
+import uz.alisoft.office.ui.home.adapter.DocViewHolder
 
 /*
  * -----------------------------------------------------------------
@@ -20,9 +19,7 @@ import uz.alisoft.office.ui.home.adapter.DocCellViewHolder
  * -----------------------------------------------------------------
  */
 
-class DocCellAdapter(var context: Context,
-                     var listener: AdapterView.OnItemClickListener?,
-                     var parentPosition: Int)
+class DocCellAdapter(private val listener: DocCellViewHolder.IDocCellListener)
     : RecyclerView.Adapter<DocCellViewHolder>() {
 
     var datas = ArrayList<DocInfo>()
@@ -36,7 +33,7 @@ class DocCellAdapter(var context: Context,
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DocCellViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = RvDocItemCellBinding.inflate(layoutInflater,parent,false)
-        return DocCellViewHolder(binding,parentPosition)
+        return DocCellViewHolder(binding,listener)
     }
 
     override fun getItemCount(): Int {
@@ -44,7 +41,6 @@ class DocCellAdapter(var context: Context,
     }
 
     override fun onBindViewHolder(holder: DocCellViewHolder, position: Int) {
-        holder.mOnItemClickListener = listener
         holder.bindData(datas[position])
     }
 }

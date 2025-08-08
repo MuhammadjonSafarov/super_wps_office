@@ -27,13 +27,7 @@ import java.io.File
 
 class DocCellViewHolder(
     private val binding: RvDocItemCellBinding,
-    groupPosition: Int) : RecyclerView.ViewHolder(binding.root),OnClickListener {
-    var mOnItemClickListener: OnItemClickListener? = null
-    var parentPosition: Int = 0
-    init {
-       parentPosition = groupPosition
-       binding.root.setOnClickListener(this)
-    }
+    private val listener:IDocCellListener) : RecyclerView.ViewHolder(binding.root){
 
     fun bindData(data: DocInfo?) {
         var typeIcon = data?.getTypeIcon() ?: -1
@@ -98,10 +92,13 @@ class DocCellViewHolder(
                 )
             }
         }
+        binding.root.setOnClickListener {
+            listener.onItemClick(data?.path?:"")
+        }
     }
 
-    override fun onClick(v: View?) {
-        mOnItemClickListener?.onItemClick(null,v,adapterPosition,parentPosition.toLong())
+    interface IDocCellListener{
+        fun onItemClick(path:String)
     }
 
 }
