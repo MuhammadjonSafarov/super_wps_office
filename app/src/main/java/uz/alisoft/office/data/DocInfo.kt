@@ -26,25 +26,25 @@ class DocInfo {
             return R.drawable.pdf_ic
         }
         if (fileName?.lowercase()?.endsWith("doc") == true) {
-            return R.drawable.file_doc
+            return R.drawable.word
         }
         if (fileName?.lowercase()?.endsWith("docx") == true) {
-            return R.drawable.file_docx
+            return R.drawable.word_ic
         }
         if (fileName?.lowercase()?.endsWith("xls") == true) {
-            return R.drawable.file_xls
+            return R.drawable.excel_ic
         }
         if (fileName?.lowercase()?.endsWith("xlsx") == true) {
-            return R.drawable.file_xlsx
+            return R.drawable.excel
         }
         if (fileName?.lowercase()?.endsWith("ppt") == true) {
             return R.drawable.ppt_ic
         }
         if (fileName?.lowercase()?.endsWith("pptx") == true) {
-            return R.drawable.file_pptx
+            return R.drawable.ppt_ic
         }
         if (fileName?.lowercase()?.endsWith("txt") == true) {
-            return R.drawable.file_txt
+            return R.drawable.txt
         }
         return -1
     }

@@ -1,13 +1,12 @@
 package com.cherry.doc
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import androidx.recyclerview.widget.RecyclerView
 import com.cherry.doc.data.DocGroupInfo
 import uz.alisoft.office.databinding.RvDocCellBinding
+import uz.alisoft.office.ui.home.HomeFragment1
+import uz.alisoft.office.ui.home.adapter.DocCellViewHolder
 import uz.alisoft.office.ui.home.adapter.DocViewHolder
 
 /*
@@ -21,34 +20,26 @@ import uz.alisoft.office.ui.home.adapter.DocViewHolder
  * -----------------------------------------------------------------
  */
 
-class DocAdapter(var context: Context, var listener: AdapterView.OnItemClickListener)
+class DocAdapter(private val listener: DocCellViewHolder.IDocCellListener)
     : RecyclerView.Adapter<DocViewHolder>() {
 
-    var datas = ArrayList<DocGroupInfo>()
+    private val mDataSet = mutableListOf<DocGroupInfo>()
 
-    fun showDatas(docList: ArrayList<DocGroupInfo>) {
-        datas.clear()
-        datas.addAll(docList)
+    fun setDat(docList: List<DocGroupInfo>) {
+        mDataSet.clear()
+        mDataSet.addAll(docList)
         notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DocViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = RvDocCellBinding.inflate(layoutInflater,parent,false)
-        return DocViewHolder(binding)
+        return DocViewHolder(binding,listener)
     }
 
-    override fun getItemCount(): Int {
-        return datas.size
-    }
+    override fun getItemCount(): Int  = mDataSet.size
 
     override fun onBindViewHolder(holder: DocViewHolder, position: Int) {
-        holder.mOnItemClickListener = listener
-        holder.bindData(datas[position])
-    }
-
-    fun inflate(layoutId: Int,parent: ViewGroup): View {
-        var inflater = LayoutInflater.from(context)
-        return inflater.inflate(layoutId,parent, false)
+        holder.bindData(mDataSet[position])
     }
 }

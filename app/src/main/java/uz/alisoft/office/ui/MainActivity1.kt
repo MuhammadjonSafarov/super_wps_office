@@ -1,3 +1,4 @@
+/*
 package uz.alisoft.office.ui
 
 import android.Manifest
@@ -10,14 +11,12 @@ import android.os.Environment
 import android.provider.Settings
 import android.util.Log
 import android.view.View
+import android.view.View.OnClickListener
 import android.widget.AdapterView
+import android.widget.AdapterView.OnItemClickListener
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
+import com.cherry.doc.DocAdapter
 import com.cherry.lib.doc.DocViewerActivity
 import com.cherry.lib.doc.bean.DocSourceType
 import com.cherry.lib.doc.bean.FileType
@@ -26,29 +25,19 @@ import com.cherry.permissions.lib.EasyPermissions
 import com.cherry.permissions.lib.EasyPermissions.hasPermissions
 import com.cherry.permissions.lib.annotations.AfterPermissionGranted
 import com.cherry.permissions.lib.dialogs.SettingsDialog
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.yatik.qrscanner.ui.MainActivity1
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import uz.alisoft.office.AppColor
 import uz.alisoft.office.R
-import uz.alisoft.office.databinding.ActivityMainHBinding
-import uz.alisoft.office.ui.home.HomeViewModel
+import uz.alisoft.office.databinding.ActivityMainBinding
 import uz.alisoft.office.util.BasicSet
 import uz.alisoft.office.util.WordUtils
-import uz.alisoft.office.util.setStatusBarColor
 import java.io.File
 import java.io.FileOutputStream
-import kotlin.getValue
 
-@AndroidEntryPoint
-class MainActivity : AppCompatActivity(),EasyPermissions.PermissionCallbacks  {
 
-    private lateinit var binding: ActivityMainHBinding
-
-    private val viewModel: HomeViewModel by viewModels()
+class MainActivity1 : AppCompatActivity(),OnClickListener,OnItemClickListener,
+    EasyPermissions.PermissionCallbacks {
     companion object {
         const val REQUEST_CODE_STORAGE_PERMISSION = 124
         const val REQUEST_CODE_STORAGE_PERMISSION11 = 125
@@ -56,30 +45,90 @@ class MainActivity : AppCompatActivity(),EasyPermissions.PermissionCallbacks  {
         const val TAG = "MainActivity"
     }
 
+    var url = "http://cdn07.foxitsoftware.cn/pub/foxit/manual/phantom/en_us/API%20Reference%20for%20Application%20Communication.pdf"
+//    var url = "https://xdts.xdocin.com/demo/resume3.docx"
+//    var url = "http://172.16.28.95:8080/data/test2.ppt"
+//    var url = "http://172.16.28.95:8080/data/testdocx.ll"
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainHBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setStatusBarColor(AppColor.white, AppColor.black, false)
-        val navView: BottomNavigationView = binding.navView
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        /* val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home,
-                R.id.navigation_projects,
-                R.id.navigation_history,
-                R.id.navigation_settings
-            )
-        )*/
-        //setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
-        binding.cardScan.setOnClickListener {
-            Intent(this@MainActivity, MainActivity1::class.java).apply {
-                startActivity(this)
-            }
-        }
         initData()
     }
+
+    private fun hasRwPermission(): Boolean {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val isExternalStorageManager = Environment.isExternalStorageManager()
+            return isExternalStorageManager
+        }
+        val read = hasPermissions(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+        val write = hasPermissions(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+
+        return read && write
+    }
+
+    @AfterPermissionGranted(REQUEST_CODE_STORAGE_PERMISSION)
+    private fun requestStoragePermission() {
+        if (hasRwPermission()) {
+           // viewModel.loadData(this)
+        } else {
+            // Ask for one permission
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                get11Permission()
+                return
+            }
+            EasyPermissions.requestPermissions(
+                this,
+                "This app needs access to your storage to load local doc",
+                REQUEST_CODE_STORAGE_PERMISSION,
+                Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE
+            )
+        }
+    }
+
+    fun get11Permission() {
+        try {
+            val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
+            intent.addCategory("android.intent.category.DEFAULT")
+            intent.data = Uri.parse(java.lang.String.format("package:%s", packageName))
+            startActivityForResult(intent, REQUEST_CODE_STORAGE_PERMISSION11)
+        } catch (e: Exception) {
+            val intent = Intent()
+            intent.action = Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION
+            startActivityForResult(intent, REQUEST_CODE_STORAGE_PERMISSION11)
+        }
+    }
+
+  */
+/*  override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_assets -> {
+                openDoc("test.docx",DocSourceType.ASSETS)
+                return true
+            }
+            R.id.action_online -> {
+                openDoc(url,DocSourceType.URL,null)
+                return true
+            }
+            R.id.action_select -> {
+                val intent = Intent(Intent.ACTION_GET_CONTENT)
+               intent.setType("")
+                startActivityForResult(intent, REQUEST_CODE_SELECT_DOCUMENT)
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+    *//*
+
 
     fun initData() {
         requestStoragePermission()
@@ -89,19 +138,19 @@ class MainActivity : AppCompatActivity(),EasyPermissions.PermissionCallbacks  {
         if (Intent.ACTION_VIEW == action && type != null) {
             val pdfUri = intent.data
             if (pdfUri != null) {
-                when (pdfUri.scheme) {
-                    "content" -> {
-                        val fileName = "temp_file_${System.currentTimeMillis()}.${FileUtils.getFileFormatForUrl(pdfUri.path)}"
-                        val file = copyUriToInternalStorage(this,pdfUri,fileName)
-                        openDoc(file?.absolutePath!!,DocSourceType.PATH)
+                    when (pdfUri.scheme) {
+                        "content" -> {
+                            val fileName = "temp_file_${System.currentTimeMillis()}.${FileUtils.getFileFormatForUrl(pdfUri.path)}"
+                            val file = copyUriToInternalStorage(this,pdfUri,fileName)
+                            openDoc(file?.absolutePath!!,DocSourceType.PATH)
+                        }
+                        "file" -> {
+                            // file:// turidagi URI – to‘g‘ridan-to‘g‘ri fayl sifatida o‘qish mumkin
+                            openDoc(pdfUri.path!!,DocSourceType.PATH)
+                        }
+                        else -> {}
                     }
-                    "file" -> {
-                        // file:// turidagi URI – to‘g‘ridan-to‘g‘ri fayl sifatida o‘qish mumkin
-                        openDoc(pdfUri.path!!,DocSourceType.PATH)
-                    }
-                    else -> {}
-                }
-            } else {
+           } else {
                 Toast.makeText(this, "Fayl topilmadi", Toast.LENGTH_SHORT).show()
             }
         }
@@ -120,8 +169,41 @@ class MainActivity : AppCompatActivity(),EasyPermissions.PermissionCallbacks  {
 
         return file
     }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+        }
+    }
+
+    fun checkSupport(path: String): Boolean {
+        var fileType = FileUtils.getFileTypeForUrl(path)
+        Log.e(javaClass.simpleName,"fileType = $fileType")
+        if (fileType == FileType.NOT_SUPPORT) {
+            return false
+        }
+        return true
+    }
+
     fun openDoc(path: String,docSourceType: Int,type: Int? = null) {
         DocViewerActivity.launchDocViewer(this,docSourceType,path,type)
+    }
+
+    override fun onItemClick(p0: AdapterView<*>?, v: View?, position: Int, id: Long) {
+        when (v?.id) {
+         */
+/*   R.id.mCvDocCell -> {
+                val groupInfo = mDocAdapter?.datas?.get(id.toInt())
+                val docInfo = groupInfo?.docList?.get(position)
+                var path = docInfo?.path ?: ""
+                if (checkSupport(path)) {
+                    openDoc(path,DocSourceType.PATH)
+                }*//*
+
+
+//                word2Html(path)
+//                WordActivity.launchDocViewer(this,path)
+            //}
+        }
     }
 
     fun word2Html(sourceFilePath: String) {
@@ -129,7 +211,7 @@ class MainActivity : AppCompatActivity(),EasyPermissions.PermissionCallbacks  {
             val htmlFilePath = cacheDir.absolutePath + "/html"
             val htmlFileName = "word_pdf"
 
-            var bs = BasicSet(this@MainActivity,sourceFilePath,htmlFilePath, htmlFileName)
+            var bs = BasicSet(this@MainActivity1,sourceFilePath,htmlFilePath, htmlFileName)
             bs.picturePath = htmlFilePath
 
             WordUtils.getInstance(bs).word2html()
@@ -192,46 +274,4 @@ class MainActivity : AppCompatActivity(),EasyPermissions.PermissionCallbacks  {
             settingsDialogBuilder.build().show()
         }
     }
-    private fun hasRwPermission(): Boolean {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            val isExternalStorageManager = Environment.isExternalStorageManager()
-            return isExternalStorageManager
-        }
-        val read = hasPermissions(this, Manifest.permission.READ_EXTERNAL_STORAGE)
-        val write = hasPermissions(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-
-        return read && write
-    }
-
-    @AfterPermissionGranted(REQUEST_CODE_STORAGE_PERMISSION)
-    private fun requestStoragePermission() {
-        if (hasRwPermission()) {
-            viewModel.loadData(this)
-        } else {
-            // Ask for one permission
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                get11Permission()
-                return
-            }
-            EasyPermissions.requestPermissions(
-                this,
-                "This app needs access to your storage to load local doc",
-                REQUEST_CODE_STORAGE_PERMISSION,
-                Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE
-            )
-        }
-    }
-
-    fun get11Permission() {
-        try {
-            val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
-            intent.addCategory("android.intent.category.DEFAULT")
-            intent.data = Uri.parse(java.lang.String.format("package:%s", packageName))
-            startActivityForResult(intent, REQUEST_CODE_STORAGE_PERMISSION11)
-        } catch (e: Exception) {
-            val intent = Intent()
-            intent.action = Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION
-            startActivityForResult(intent, REQUEST_CODE_STORAGE_PERMISSION11)
-        }
-    }
-}
+}*/

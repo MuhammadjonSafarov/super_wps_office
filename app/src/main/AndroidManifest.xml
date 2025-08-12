@@ -34,7 +34,7 @@
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
         <activity
-            android:name="uz.alisoft.office.ui.WiperActivity"
+            android:name="uz.alisoft.office.ui.MainActivity"
             android:exported="true">
 
             <intent-filter>
@@ -58,6 +58,13 @@
                 <data android:mimeType="application/vnd.ms-excel" />
                 <data android:mimeType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
 
+                <!-- PPT va PPTX -->
+                <data android:mimeType="application/vnd.ms-powerpoint" />
+                <data android:mimeType="application/vnd.openxmlformats-officedocument.presentationml.presentation" />
+
+                <!-- TXT -->
+                <data android:mimeType="text/plain" />
+
                 <data android:scheme="content" />
                 <data android:scheme="file" />
             </intent-filter>
@@ -80,5 +87,4 @@
                 />
         </provider>
     </application>
-
 </manifest>

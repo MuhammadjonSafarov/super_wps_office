@@ -127,12 +127,20 @@ object DocUtil {
             }
 
         }
-
-        docGroupList.add(DocGroupInfo("DOC & DOCX",docList))
-        docGroupList.add(DocGroupInfo("XLS & XLSX",excelList))
-        docGroupList.add(DocGroupInfo("PPT & PPTX",pptList))
+        if (docList.isNotEmpty()) {
+            docGroupList.add(DocGroupInfo("DOC & DOCX",docList))
+        }
+        if (excelList.isNotEmpty()){
+            docGroupList.add(DocGroupInfo("XLS & XLSX",excelList))
+        }
+        if (pptList.isNotEmpty()){
+            docGroupList.add(DocGroupInfo("PPT & PPTX",pptList))
+        }
+        if (pdfList.isNotEmpty())
         docGroupList.add(DocGroupInfo("PDF",pdfList))
+        if (txtList.isNotEmpty())
         docGroupList.add(DocGroupInfo("TXT",txtList))
+        if (imageList.isNotEmpty())
         docGroupList.add(DocGroupInfo("IMAGE",imageList))
 
         return docGroupList

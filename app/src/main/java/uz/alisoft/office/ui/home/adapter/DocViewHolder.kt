@@ -19,29 +19,14 @@ import uz.alisoft.office.databinding.RvDocCellBinding
  * -----------------------------------------------------------------
  */
 
-class DocViewHolder(private val binding:RvDocCellBinding)
-    : RecyclerView.ViewHolder(binding.root),OnClickListener {
-    var mOnItemClickListener: OnItemClickListener? = null
-
-    init {
-        binding.root.setOnClickListener(this)
-    }
+class DocViewHolder(private val binding:RvDocCellBinding,
+                    listener:DocCellViewHolder.IDocCellListener)
+    : RecyclerView.ViewHolder(binding.root){
+    private val cellAdapter = DocCellAdapter(listener)
 
     fun bindData(data: DocGroupInfo?) {
         binding.mTvTypeName.text = data?.typeName
-
-//        itemView.mRvDocCell.onFlingListener = null
-//        LinearSnapHelper().attachToRecyclerView(itemView.mRvDocCell)
-
-        var cellAdapter = DocCellAdapter(itemView.context,mOnItemClickListener,
-            adapterPosition)
         cellAdapter.showDatas(data?.docList)
-
         binding.mRvDocCell.adapter = cellAdapter
     }
-
-    override fun onClick(v: View?) {
-        mOnItemClickListener?.onItemClick(null,v,adapterPosition,0)
-    }
-
 }

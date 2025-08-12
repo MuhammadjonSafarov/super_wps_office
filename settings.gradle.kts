@@ -22,6 +22,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "Super WPS Office"
 include(":app")
-include(":scan")
+include(":scan_qr")
 include(":library")
 include(":core:designsystem")

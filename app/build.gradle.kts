@@ -45,8 +45,8 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
-     /*   sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8*/
+     /* sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8 */
     }
     kotlinOptions {
         jvmTarget = "11"
@@ -74,7 +74,7 @@ dependencies {
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
     implementation(project(":library"))
-    implementation(project(":scan"))
+    implementation(project(":scan_qr"))
     implementation(project(":core:designsystem"))
 
     implementation("io.coil-kt:coil:1.4.0")
@@ -93,7 +93,7 @@ dependencies {
     ksp(libs.room.compiler)
     annotationProcessor(libs.room.compiler)
 
-            /* Timber */
+     /* Timber */
     implementation("com.jakewharton.timber:timber:5.0.1")
     /*{
         exclude module: "play-services-ads-identifier"
