@@ -12,8 +12,8 @@ package com.cherry.lib.doc.bean
  */
 
 object DocSourceType {
-    const val URL = 1//在线
-    const val URI = 2//文件选择
-    const val PATH = 3//sdcard
-    const val ASSETS = 4//assests
+    const val URL = 1 // online
+    const val URI = 2 // choose file
+    const val PATH = 3 // sdcard
+    const val ASSETS = 4// assests
 }
