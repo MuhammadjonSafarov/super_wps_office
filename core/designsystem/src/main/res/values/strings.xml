@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_root" translatable="false">Super WPS Office</string>
     <string name="lbl_hello_world">Salom Dunyo</string>
-
     <string name="menu_home">Asosiy</string>
     <string name="menu_favorite">Saqlangan</string>
     <string name="menu_history">Tarix</string>

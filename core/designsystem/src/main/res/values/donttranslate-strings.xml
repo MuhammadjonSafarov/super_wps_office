@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="app_name">Super WPS Office</string>
     <string name="lbl_number_uzb_placeholder">+998</string>
     <string name="lbl_number_uzb_placeholder_withou_plus">998</string>
     <string name="digits_for_placeholder_redmadrobot_mask_phone_uzb">0123456789 -()</string>

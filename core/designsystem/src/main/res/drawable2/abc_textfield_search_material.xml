@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt">
-    <item android:state_focused="true" android:state_enabled="true" android:drawable="0x7f080063"/>
-    <item android:state_enabled="true" android:drawable="0x7f080063" android:state_activated="true"/>
-    <item android:state_enabled="true" android:drawable="0x7f080064"/>
-    <item android:drawable="0x7f080064"/>
-</selector>
