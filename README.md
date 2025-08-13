@@ -8,6 +8,8 @@ android DocViewer support view word excel ppt pdf txt image in sdcard & uri & as
 - Step 1. Add the JitPack repository to your build or setting file
 
 ```
+
+
 build file:
 allprojects {
     repositories {
