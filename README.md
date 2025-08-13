@@ -3,7 +3,6 @@ android DocViewer support view word excel ppt pdf txt image in sdcard & uri & as
 
 ### Rendering
 # Screenshot
-<img src="https://github.com/Victor2018/DocViewer/blob/main/SrceenShot/st_1.png" width = "275" height = "569"  /><br>
 <img src="https://github.com/Victor2018/DocViewer/blob/main/SrceenShot/st_2.png" width = "275" height = "569"  /><br>
 <img src="https://github.com/Victor2018/DocViewer/blob/main/SrceenShot/st_3.png" width = "275" height = "569"  /><br>
 <img src="https://github.com/Victor2018/DocViewer/blob/main/SrceenShot/st_4.png" width = "275" height = "569"  /><br>
