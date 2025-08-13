@@ -25,5 +25,6 @@ class App: Application() {
         else
             Timber.plant(CrashReportingTree())
 
+        // version control
     }
 }
